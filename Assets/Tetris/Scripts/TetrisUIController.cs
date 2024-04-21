@@ -64,14 +64,22 @@ public class TetrisUIController : MonoBehaviour
 
     public void ToggleMenu()
     {
-        Time.timeScale = 1 - Time.timeScale;
-        this.GameMenuUI.SetActive(!this.GameMenuUI.activeSelf);
+        if (MultiSingleManager.Instance.isMulti) return;
+        else
+        {
+            Time.timeScale = 1 - Time.timeScale;
+            this.GameMenuUI.SetActive(!this.GameMenuUI.activeSelf);
+        }
     }
 
     public void ToggleTips()
     {
-        Time.timeScale = 1 - Time.timeScale;
-        this.TipsUI.SetActive(!this.TipsUI.activeSelf);
+        if (MultiSingleManager.Instance.isMulti) return;
+        else
+        {
+            Time.timeScale = 1 - Time.timeScale;
+            this.TipsUI.SetActive(!this.TipsUI.activeSelf);
+        }
     }
 
     public void ReLoadGame()
